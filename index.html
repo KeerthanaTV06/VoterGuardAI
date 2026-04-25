@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>VoterGuard AI – Your Civic Education Assistant</title>
+  <meta name="description" content="VoterGuard AI helps you understand elections, detect misinformation, and get real-life voting guidance. Your intelligent civic education companion." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Animated background -->
+  <div class="bg-orbs">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="orb orb-3"></div>
+  </div>
+
+  <!-- Header -->
+  <header class="header" id="header">
+    <div class="header-inner">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="28" height="28" viewBox="0 0 28 28" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14 2L4 6.5V13C4 18.55 8.33 23.74 14 25C19.67 23.74 24 18.55 24 13V6.5L14 2Z" fill="url(#shieldGrad)"/>
+            <path d="M10 14L12.5 16.5L18 11" stroke="white" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <defs>
+              <linearGradient id="shieldGrad" x1="4" y1="2" x2="24" y2="25" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#6366f1"/>
+                <stop offset="1" stop-color="#8b5cf6"/>
+              </linearGradient>
+            </defs>
+          </svg>
+        </div>
+        <div class="brand-text">
+          <span class="brand-name">VoterGuard</span><span class="brand-ai">AI</span>
+        </div>
+      </div>
+      <div class="header-badge">
+        <span class="pulse-dot"></span>
+        <span>Civic Intelligence Active</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main App -->
+  <main class="app-container" id="app-container">
+
+    <!-- Welcome Screen -->
+    <div class="welcome-screen" id="welcome-screen">
+      <div class="welcome-hero">
+        <div class="hero-icon-wrap">
+          <div class="hero-icon">
+            <svg width="52" height="52" viewBox="0 0 52 52" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M26 4L6 13V25C6 35.5 14.67 45.4 26 48C37.33 45.4 46 35.5 46 25V13L26 4Z" fill="url(#heroShield)"/>
+              <path d="M19 26L23.5 30.5L33 21" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="heroShield" x1="6" y1="4" x2="46" y2="48" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#6366f1"/>
+                  <stop offset="1" stop-color="#a855f7"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </div>
+          <div class="hero-rings">
+            <div class="ring ring-1"></div>
+            <div class="ring ring-2"></div>
+          </div>
+        </div>
+        <h1 class="hero-title">VoterGuard <span class="gradient-text">AI</span></h1>
+        <p class="hero-sub">Your intelligent civic education companion — understand elections, bust myths, and vote with confidence.</p>
+      </div>
+
+      <!-- Knowledge Check -->
+      <div class="knowledge-check glass-card" id="knowledge-check">
+        <p class="card-label">👋 Quick check before we start</p>
+        <p class="card-question">Is this your <strong>first time</strong> learning about voting?</p>
+        <div class="btn-group">
+          <button class="btn btn-outline" id="btn-yes-first" onclick="setExperience('beginner')">Yes, first time! 🌱</button>
+          <button class="btn btn-outline" id="btn-no-first" onclick="setExperience(null)">Nope, I know some stuff</button>
+        </div>
+        <div class="experience-selector hidden" id="experience-selector">
+          <p class="card-question" style="margin-top:1rem;">How deep do you want to go?</p>
+          <div class="btn-group">
+            <button class="btn btn-outline" onclick="setExperience('intermediate')">Step-by-step 📋</button>
+            <button class="btn btn-outline" onclick="setExperience('advanced')">Full details + law ⚖️</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mode Cards -->
+      <div class="mode-grid" id="mode-grid">
+        <div class="mode-card glass-card" id="mode-learn" onclick="startMode('learn')">
+          <div class="mode-icon" style="background: linear-gradient(135deg,#6366f1,#8b5cf6)">🗺️</div>
+          <h3>Learn Voting</h3>
+          <p>Step-by-step election guide from registration to ballot</p>
+          <div class="mode-arrow">→</div>
+        </div>
+        <div class="mode-card glass-card" id="mode-mythbust" onclick="startMode('mythbust')">
+          <div class="mode-icon" style="background: linear-gradient(135deg,#ec4899,#f43f5e)">🔍</div>
+          <h3>Myth Buster</h3>
+          <p>Check if something is true, fake, or in between</p>
+          <div class="mode-arrow">→</div>
+        </div>
+        <div class="mode-card glass-card" id="mode-help" onclick="startMode('help')">
+          <div class="mode-icon" style="background: linear-gradient(135deg,#0ea5e9,#06b6d4)">⚖️</div>
+          <h3>Get Help</h3>
+          <p>Stuck with a voting problem? Get real-world guidance</p>
+          <div class="mode-arrow">→</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chat Interface -->
+    <div class="chat-container hidden" id="chat-container">
+      <!-- Chat header bar -->
+      <div class="chat-header glass-card">
+        <button class="back-btn" id="back-btn" onclick="goHome()">
+          <svg width="18" height="18" viewBox="0 0 18 18" fill="none"><path d="M11 4L6 9L11 14" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>
+          Back
+        </button>
+        <div class="chat-mode-label" id="chat-mode-label">
+          <span id="chat-mode-icon">🗺️</span>
+          <span id="chat-mode-name">Election Guide</span>
+        </div>
+        <div class="level-badge" id="level-badge">Beginner</div>
+      </div>
+
+      <!-- Messages -->
+      <div class="messages-area" id="messages-area">
+        <!-- Messages injected by JS -->
+      </div>
+
+      <!-- Typing indicator -->
+      <div class="typing-indicator hidden" id="typing-indicator">
+        <div class="typing-bubble glass-card">
+          <div class="dots">
+            <span></span><span></span><span></span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Input bar -->
+      <div class="input-bar glass-card" id="input-bar">
+        <div class="input-wrap">
+          <textarea
+            id="user-input"
+            placeholder="Type your question or paste a message to fact-check…"
+            rows="1"
+            onkeydown="handleInputKeydown(event)"
+            oninput="autoResize(this)"
+          ></textarea>
+          <button class="send-btn" id="send-btn" onclick="sendMessage()">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M2 10L18 2L10 18L8.5 11.5L2 10Z" fill="currentColor"/></svg>
+          </button>
+        </div>
+        <!-- Quick reply chips -->
+        <div class="quick-chips" id="quick-chips"></div>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <p>🛡️ VoterGuard AI · Built to empower every voter · <span class="footer-note">Not affiliated with any political party</span></p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>
